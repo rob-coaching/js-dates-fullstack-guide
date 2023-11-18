@@ -38,8 +38,10 @@ This is the format that you will usually see when viewing your data in your Mong
 
 For more flexibility to convert a date into different formats as we need or extract infos from it, we can store our date in a javascript DATE objects:
 
+```
 const myDate = new Date("2023-11-18")
 console.log(myDate) // => `2023-11-18T00:00:00.000Z`
+```
 
 Notice that we get printed this ISO date string by default, when we console.log the date object.
 
@@ -57,15 +59,15 @@ console.log(myDate.getFullYear()) // => 2023 (YEAR)
 
 ### Date as Number
 
-There also exist a pure number format for a date. This is called a TIMESTAMP.
+There also exist a pure number format for a date. This is called a <b>TIMESTAMP</b>.
 
 It is a date that represents the MILLISECONDS passed since a certain time.
 
 Now the question is: The milliseconds passed since WHICH time?
 
-Well, we just pick so date long enough ago.
+Well, we just pick some date long enough ago... from ancient ancient times....
 
-The most prominent timestamp is the so called UNIX TIMESTAMP.
+The most prominent timestamp is the so called <b>UNIX TIMESTAMP</b>.
 
 It is a date that represents the MILLISECONDS passend since the day <b>1970-01-01</b>
 
@@ -76,7 +78,7 @@ Examples:
 2023-11-18T00:00:00.000Z (ISO DATE) => 1700265600000 (UNIX TIMESTAMP)
 ```
 
-Storing the date as such a number has some great advantages.
+Storing the date as a number has some great advantages.
 
 We can very easily COMPARE dates. 
 
@@ -98,18 +100,24 @@ console.log(myDate) // => `2023-11-18T00:00:00.000Z` (ISO DATE)
 const myDateTimestamp = myDate.getTime() // get timestamp (= date as milliseconds)
 console.log(myDateTimestamp) // => 1699401600000 (TIMESTAMP)
 
-// check if date is in a range...
-const myDateBefore = new Date("2023-11-01")
-const myDateAfter = new Date("2023-11-20")
-const myDateBeforeTimestamp = myDateBefore.getTime()
-const myDateAfterTimestamp = myDateAfter.getTime()
+```
+
+That's it already. The getTime() function of a date object delivers us the data as that number.
+
+Now we can use it to compare stuff:
+
+```
+// timestamps
+const myDateTimestamp = new Date("2023-11-08").getTime()
+const myDateBeforeTimestamp = new Date("2023-11-01").getTime()
+const myDateAfterTimestamp = new Date("2023-11-20").getTime()
 
 // check if the date above is between these two other dates
 if(myDateTimestamp >= myDateBeforeTimestamp && myDateTimestamp <= myDateAfterTimestamp ) {
   // this date is in between the other two ! do something....
 }
-
 ```
+
 
 ## Date in HTML Input element
 
@@ -117,7 +125,9 @@ The HTML element `<input type="date" />` allows the user to pick a date from a d
 
 How nice that is... right?
 
-The RESULT of the picking will be - as usual - avaible in the event object:
+(changes of that input field we can - as usual - handle with the onChange event)
+
+The date that was picked will be - as usual - avaible in the event object:
 `event.target.value`
 
 The format of that picked date will usually be the ISO String format.
@@ -165,8 +175,8 @@ E.g. the following should work fine:
 
 ```
 // here two example (ISO) date strings we received from the frontend
-const strDateStart = "2023-12-01T00:00:00.000Z"
-const strDateEnd = "20223-12-31T00:00:00.000Z"
+const strDateStart = "2023-12-01" // simple date string
+const strDateEnd = "20223-12-31T00:00:00.000Z" // ISO date string
 const title = "New crazy event in your hometown, buddy"
 
 // construct new event object from data
@@ -222,7 +232,7 @@ If the frontend sends ISO date strings, this will work too.
 
 #### Filtering events on ONE day
 
-In case we just store the day of an event in the database and not the TIME, things are easy.
+In case we just store the DAY of an event in the database and not the TIME, things are easy.
 
 
 ```
@@ -232,22 +242,24 @@ const strDateFilter = "2023-12-01T00:00:00.000Z"
 Event.find({ dateStart: strDateFilter })
 ```
 
-But in case we also store additionally the TIME of the events in the database, this will unfortunately not work.
+But usually that is not the case. Events usually have a start & end TIME as well.
+
+In case we also store the TIME of the events in the database, this simple method above will not work.
 
 E.g. our event date is stored like that:
 
 "2023-12-01T16:30:00.000Z"
 
-This is where things get slightly tricky.
-
 Now this date takes place on 16:30 o'clock.
+
+This is where things get slightly tricky.
 
 Now we cannot simply check if that date equals the day:
 "2023-12-01T00:00:00.000Z"
 
 That will not work.
 
-There is no Mongo builin method that we can use to only check just the DAY part.
+There is no Mongo builtin method that we can use to only check just the DAY part.
 
 But there is a nice workaround.
 
@@ -258,18 +270,17 @@ Is the day BETWEEN the start of that day and the start of the NEXT day
 
 Example:
 
-Event date: "2023-12-01T16:30:00.000Z"
+- Event date: "2023-12-01T16:30:00.000Z"
+- Start of day: "2023-12-01T00:00:00.000Z"
+- Start of next day: "2023-12-02T00:00:00.000Z"
 
-Start of day: "2023-12-01T00:00:00.000Z"
-Start of next day: "2023-12-02T00:00:00.000Z"
+So in case an event is BETWEEN that two dates (1. and 2. december), we know it takes place on the first of december 2023.
 
-So in case our event is between that two dates, we know, it happens on the first of december 2023.
-
-So we have to do one thing in JavaScript:
+So now we have to do one thing in JavaScript:
 
 We need to ADD ONE DAY to the received date.
 
-And then we check all events if they are between the start date and the NEXT DAY date.
+And then we check all events if they are between the start date and the NEXT day date.
 
 ```
 const strDate = "2023-12-01T00:00:00.000Z"
@@ -313,9 +324,7 @@ Event.find({
 })
 ```
 
-And that's it.
-
-Amen.
+And that's it. May the lords of time be with you.
 
 
 # OUTRO
