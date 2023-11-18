@@ -130,11 +130,21 @@ How nice that is... right?
 The date that was picked will be - as usual - avaible in the event object:
 `event.target.value`
 
+The format of that picked date will be a simple date string in US format: 
+
+`2023-11-18`
+
+Now we also got the "datetime-local" type:
+
+`<input type="datetime-local" />`
+
+Here we can pick both a Date AND a Time with one picker.
+
 The format of that picked date will usually be the ISO String format.
 
 `2023-11-18T00:00:00.000Z`
 
-So in case you send this date nowto you backend, the backend will receive this date here as a STRING.
+So in case you send this date now to you backend, the backend will receive this date here as a STRING.
 
 That is important to keep in mind!
 
