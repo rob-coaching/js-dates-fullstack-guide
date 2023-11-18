@@ -148,6 +148,14 @@ So in case you send this date now to you backend, the backend will receive this 
 
 That is important to keep in mind!
 
+## Datepicker with range
+
+In case you wanna have a datepicker where you can pick TWO dates, a start & end date, with just ONE dialog window, you have to look for some component out there or built it on your own (=> the latter is not recommended because you will have to deal with probably more issues than you think ;-))
+
+In case you work with react, you could e.g. pick the "react-datepicker" package:
+https://www.npmjs.com/package/react-datepicker
+
+
 ## Date Handling in Backend
 
 Date strings are no different than any strings for the backend.
