@@ -1,4 +1,4 @@
-# JavaScript Dates & Date Filtering
+# JavaScript Dates & Filtering by date in backend
 
 ## Intro 
 In JS there is a topic that s*cks like almost none other: DATE operations.
