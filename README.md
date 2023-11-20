@@ -311,7 +311,7 @@ dateNext = new Date( dateNext )
 
 Event.find({
   dateStart: { $gte: dateStart  },
-  dateStart: { $lte: dateNext }
+  dateStart: { $lt: dateNext }
 })
 
 ```
@@ -338,7 +338,7 @@ And now we can compare if a date is between the given day and the next day:
 ```
 Event.find({
   dateStart: { $gte: date  },
-  dateStart: { $lte: dateNext }
+  dateStart: { $lt: dateNext }
 })
 ```
 
