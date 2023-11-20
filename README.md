@@ -192,7 +192,7 @@ This "Date" datatype is the JavaScript Date object.
 
 But mongoose is flexible when inserting those dates:
 
-You can either insert JavaScript data objects OR simply date strings:
+You can either insert JavaScript date objects or simply date strings:
 
 E.g. the following should work fine:
 
@@ -200,6 +200,7 @@ E.g. the following should work fine:
 // here two example (ISO) date strings we received from the frontend
 const strDateStart = "2023-12-01" // simple date string
 const strDateEnd = "20223-12-31T00:00:00.000Z" // ISO date string
+
 const title = "New crazy event in your hometown, buddy"
 
 // construct new event object from data
@@ -210,11 +211,29 @@ const event = await Event.create( eventItem )
 
 ```
 
-And boooom. MongoDB will now store your item with the two dates.
+But using date objects works too:
+
+```
+// here two example (ISO) date strings we received from the frontend
+const dateStart = new Date("2023-12-01") // date object
+const dateEnd = new Date("2023-12-31") // date object
+
+const title = "New crazy event in your hometown, buddy"
+
+// construct new event object from data
+const eventItem = { title, dateStart, dateENd }
+
+// store in database
+const event = await Event.create( eventItem )
+
+```
+
+
+And boooom. MongoDB will now insert your item with the two dates.
 
 But keep in mind: MongoDB will store those as full date objects including the TIME:
 
-So if you look up your event in the Database it will look like this:
+So if you look up your event item in the Database it will look like something like this:
 
 ```
 {
@@ -229,7 +248,7 @@ So if you look up your event in the Database it will look like this:
 
 Now let's move on to the exciting stuff.
 
-Filtering all your events ON A CERTAIN DATE or IN BETWEEN TWO DATES.
+Filtering all your events on a specific DAY or IN BETWEEN two days.
 
 #### Filtering events BETWEEN two dates
 
