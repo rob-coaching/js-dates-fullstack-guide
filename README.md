@@ -181,7 +181,7 @@ Date strings are no different than any other strings you receive in the backend.
 
 You will receive those either as PARAMS in a GET request.
 
-Or you will receive those inside your BODY in a POST request.
+Or you will receive those inside your BODY in a POST or PUT request.
 
 Once you receive now the date ISO STRING in your backend, you probably ask yourself:
 
