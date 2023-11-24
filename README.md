@@ -3,9 +3,12 @@
 ## Intro 
 In JS there is a topic that s*cks like almost none other: DATE operations.
 
-In this guide we wanna show practially how to 
-1) handle date formats in JS
-2) grab date input from user
+This guide will not go into the details of ALL possible things you can do with JS dates.
+
+It will be solely focusses on the most common fullstack flow:
+
+1) grab date input from user
+2) use & store meaningful date formats in JS
 3) using dates to filter data in the backend (in MongoDB)
 
 ## Formats. Formats. Formats.
