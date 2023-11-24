@@ -179,9 +179,9 @@ https://www.npmjs.com/package/react-datepicker
 
 Date strings are no different than any other strings you receive in the backend.
 
-You will receive those either as PARAMS in a GET request.
+You will receive those either as PARAMS in a GET request (`req.params.deinDateField`)
 
-Or you will receive those inside your BODY in a POST or PUT request.
+Or you will receive those inside your BODY in a POST or PUT request (`req.body.deinDateField`)
 
 Once you receive now the date ISO STRING in your backend, you probably ask yourself:
 
