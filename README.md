@@ -177,7 +177,7 @@ https://www.npmjs.com/package/react-datepicker
 
 ## Date Handling in Backend
 
-Date strings are no different than any other strings you receive the backend.
+Date strings are no different than any other strings you receive in the backend.
 
 You will receive those either as PARAMS in a GET request.
 
