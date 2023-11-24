@@ -31,7 +31,7 @@ It contains both: the day of the year + the time including milliseconds.
 
 Example:
 
-`2023-11-18T00:00:00.000Z`
+`2023-11-18T16:30:00.000Z`
 
 The "T" in that string separates the date from the time. And the Z is the final delimiter.
 
