@@ -156,6 +156,12 @@ So in case you send this date now to you backend, the backend will receive this 
 
 That is important to keep in mind!
 
+Other input types:
+```
+<input type="month" /> // gives you the year + month in e.target.value
+<input type="week" /> // gives you the year + week in e.target.value
+```
+
 ## Datepicker with range
 
 In case you wanna have a datepicker where you can pick TWO dates, a start & end date, with just ONE dialog window, you have to look for some component out there or built it on your own (=> the latter is not recommended because you will have to deal with probably more issues than you think ;-))
