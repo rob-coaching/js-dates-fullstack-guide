@@ -156,6 +156,11 @@ So in case you send this date now to you backend, the backend will receive this 
 
 That is important to keep in mind!
 
+Beware of the
+`<input type="datetime" />`
+
+Type "datetime" is deprecated and is already not working anymore in several browsers like Chrome.
+
 Other input types:
 ```
 <input type="month" /> // gives you the year + month in e.target.value
