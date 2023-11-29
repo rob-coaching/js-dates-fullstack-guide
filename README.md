@@ -15,7 +15,7 @@ It will solely focus on the most common fullstack flow:
 
 First of all some basics...
 
-We can have a date repsented in different formats.
+We can have a date in different formats.
 
 ### Date as String
 
