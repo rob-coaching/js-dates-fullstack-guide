@@ -45,7 +45,7 @@ This is the format that you will usually see when viewing your data in your Mong
 
 ### Date Object in JavaScript
 
-For more flexibility to convert a date into different formats as we need or extract infos from it, we can store our date in a javascript DATE objects:
+For more flexibility to convert a date into different formats as we need or extract infos from it, we can store our date in a javascript DATE object:
 
 ```
 const myDate = new Date("2023-11-18")
