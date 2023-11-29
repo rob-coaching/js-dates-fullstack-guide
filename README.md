@@ -153,7 +153,7 @@ The format of that picked date will usually be the ISO String format.
 
 `2023-11-18T00:00:00.000Z`
 
-So in case you send this date now to you backend, the backend will receive this date here as a STRING.
+So in case you send this date now to your backend, the backend will receive this date here as a STRING.
 
 That is important to keep in mind!
 
