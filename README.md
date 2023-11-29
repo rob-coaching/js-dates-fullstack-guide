@@ -203,7 +203,7 @@ const EventSchema = new Schema({
 export const Event = model("Event", EventSchema)
 ```
 
-This "Date" datatype allows to a JavaScript Date object. 
+This "Date" datatype allows us to store a JavaScript Date object. 
 
 But mongoose is flexible when inserting those dates:
 
