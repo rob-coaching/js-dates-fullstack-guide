@@ -23,10 +23,11 @@ We can have the date represented as string with the day of the year in US format
 
 Example: 
 `2023-07-11`
+(YYYY-MM-DD)
 
 Straight forward. Next...
 
-### Data as "ISO String"
+### Date as "ISO String"
 
 A very common format to represent dates in a programming language is the "ISO String". 
 
