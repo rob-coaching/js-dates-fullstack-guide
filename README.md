@@ -298,7 +298,7 @@ const strDateFilter = "2023-12-01T00:00:00.000Z"
 Event.find({ dateStart: strDateFilter })
 ```
 
-But usually that is not the case. Events usually have a start & end TIME as well.
+But usually that is not the case. Events usually have a TIME as well.
 
 In case we also store the TIME of the events in the database, this simple method above will not work.
 
