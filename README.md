@@ -343,9 +343,8 @@ const strDate = "2023-12-01T00:00:00.000Z"
 const dateStart = new Date(strDate) // convert to date
 let dateNext = new Date(strDate) // copy data to second variable
 
-// the mindfuck part....
+// the mindfuck part: ADD A DAY to the given date
 dateNext.setDate( dateNext.getDate() + 1 )
-dateNext = new Date( dateNext )
 
 Event.find({
   dateStart: { $gte: dateStart  },
@@ -359,7 +358,6 @@ What does that mindfuck part above - to calculate the next day - exactly do ?
 
 ```
 dateNext.setDate( dateNext.getDate() + 1 )
-dateNext = new Date( dateNext )
 ```
 
 Step by step:
@@ -367,8 +365,6 @@ Step by step:
 - adding +1 gets us the next day => 31
 - setDate SETS / updates the day on the date => from 30 to 31
 - setDate also checks if we reached the next month. e.g. when we are at day 31, it will go to day 01 and also increases the month! Same if we reached the end of the year
-- but setDate converts the date to a TIMESTAMP (=> so a gibberish number like that 12034040404000)
-- we need to convert this number back to a date object with "new Date( theNumber)"
 - and there we go: Finally we got a date object for the next day 
 
 And now we can compare if a date is between the given day and the next day:
