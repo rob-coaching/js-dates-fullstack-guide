@@ -269,8 +269,7 @@ Filtering all your events on a specific DAY or IN BETWEEN two days.
 
 You can use the find() method on your model to query your data.
 
-In this case we want to check, if our event starts AFTER the given start date.
-And ends BEFORE the given end date.
+We want to check if our event starts AFTER the given start date. And ends BEFORE the given end date.
 
 For that we can use the MongoDB query operators "$gte" (=greater than or equals)
 and "$lte" (=less than or equals)
