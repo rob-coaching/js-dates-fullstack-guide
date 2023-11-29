@@ -54,7 +54,7 @@ console.log(myDate) // => `2023-11-18T00:00:00.000Z`
 
 Notice that we get printed this ISO date string by default, when we console.log the date object.
 
-But don't get fooled, little grasshopper. It is no string, ist is an OBJECT.
+But don't get fooled, little grasshopper. It is no string, it is an OBJECT.
 
 And therefore it provides us some nice stuff, like extracting parts of the date:
 
