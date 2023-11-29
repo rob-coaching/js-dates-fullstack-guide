@@ -111,7 +111,7 @@ console.log(myDateTimestamp) // => 1699401600000 (TIMESTAMP)
 
 ```
 
-That's it already. The getTime() function of a date object delivers us the data as that number.
+That's it already. The getTime() function of a date object delivers us the date as that number.
 
 Now we can use it to compare stuff:
 
