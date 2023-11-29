@@ -22,7 +22,7 @@ We can have a date in different formats.
 We can have the date represented as string with the day of the year in US format:
 
 Example: 
-`2023-07-11``
+`2023-07-11`
 
 Straight forward. Next...
 
